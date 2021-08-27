@@ -1,7 +1,9 @@
-#goes in body for onload function
- <bod<body style="background-color:#262626; position: fixed; width: 99.5%; height: 100%; left: -10" onload="function()">
+#goes in body of landing for onload function
+
+ <body style="background-color:#262626; position: fixed; width: 99.5%; height: 100%; left: -10" onload="function()">
  
- #goes in header for the links
+ #goes in header repeatedly as needed for the links
+ 
  		<td align="center">
 			<div class="img-overlay" id="main">
 				<a href='#'>

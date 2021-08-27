@@ -1,0 +1,41 @@
+#goes in body for onload function
+ <bod<body style="background-color:#262626; position: fixed; width: 99.5%; height: 100%; left: -10" onload="function()">
+ 
+ #goes in header for the links
+ 		<td align="center">
+			<div class="img-overlay" id="main">
+				<a href='#'>
+					<h2>MAIN</h2>
+				</a>	
+			</div>
+		</td>
+    
+ #the main js that redirects the links to their actual locations 
+ 
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+			$("#main").click(function(){
+                $("#data").load("html/main.html");});
+            $("#networking").click(function(){
+                $("#data").load("html/networking.html");});
+            $("#servers").click(function(){
+                $("#data").load("html/servers.html");});
+            $("#hardware").click(function(){
+                $("#data").load("html/hardware.html");});
+            $("#programming").click(function(){
+                $("#data").load("html/programming.html");});
+            $("#links").click(function(){
+                $("#data").load("html/links.html");});
+            $("#sitemap").click(function(){
+                $("#data").load("html/sitemap.html");});
+	</script>
+  
+ #the default landing page
+ 
+ <script type="text/javascript">
+			$("#main").ready(function(){
+                $("#data").load("html/main.html");});
+                
+		</script>
+ 
+ 

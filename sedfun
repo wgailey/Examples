@@ -1,0 +1,30 @@
+1. Change the name Jon to Jonathan.
+sed -e 's/Jon/Jonathan/g' datebook
+    2. Delete the first three lines.
+sed -e '1,3d' datebook
+    3. Print lines 5 through 10.
+sed -n '5,10p' datebook
+    4. Delete lines containing Lane.
+sed -e '/Lane/d' datebook
+    5. Print all lines where the birthdays are in November or December.
+sed -n -e '/[0-9]\{9\}:1[12]\//p' datebook
+    6. Append three asterisks to the end of lines starting with Fred.
+*****sed -e '/^Fred/a\asterisks asterisks asterisks ' datebook
+    7. Replace the line containing Jose with JOSE HAS RETIRED.
+sed -e 's/.*Jose.*/JOSE HAS RETIRED\./g'
+    8. Change Popeye's birthday to 11/14/46. Assume you don't know Popeye's original birthday. 
+		Use a regular expression to search for it.
+sed -e '/Popeye/s#[0-9][0-9]*/[0-9][0-9]*/[0-9][0-9]#11/14/46#g' datebook
+    9. Delete all blank lines.
+sed -e '/^[ \t\n]*$/d' datebook
+
+
+    10. Write a sed script that will
+        a. Insert above the first line the title PERSONNEL FILE.
+sed -i '1i\PERSONNEL FILE' /home/student10/lab4/datebook
+        b. Remove the salaries ending in 500.
+sed '/500$/d' /home/student10/lab4/datebook
+        c. Print the contents of the file with the last names and first names reversed.
+sed s/\(^[A-Za-z]*\)\([ \t]*\)\([A-Za-z]*\):\(.*\)$/\3\2\1:\4/g /home/student10/lab4/datebook
+        d. Append at the end of the file THE END.
+sed $a\THE END /home/student10/lab4/datebook

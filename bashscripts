@@ -1,0 +1,71 @@
+#multiple scripts separated with ====
+
+#!/bin/bash
+##Greet Me
+
+echo "Hello "`hostname`
+
+echo $(date +"%c")
+
+echo $"`cal`"
+
+echo `uname -mvr`
+
+ls -al ../
+
+pstree -u root
+
+echo $TERM $PATH $HOME
+
+echo `du -h`
+echo `id`
+echo 'Please, could you loan me $50.00?'
+echo "Good-bye" `hostname` $(date +"%r")
+
+#2
+#went with "chmod 775 greetme" instead -rwxrwxrwx
+#3
+#the call to the shell, because it runs the commands...
+==============================================================
+#!/bin/bash
+##Rename
+echo "Please enter the name of the file you wish to rename"
+read name1
+if [ ! -f "$name1" ];
+        then
+                echo "You did not enter a file to change or the file does not exist"
+                exit 1
+        else
+                echo "Please enter the new file name for "$name1
+fi
+read name2
+if [ -z "$name2" ];
+        then
+                echo "You did not enter a new file name for $name1"
+                exit 1
+        else
+                mv $name1 $name2
+                echo "the file $name1 has been renamed $name2"
+                exit 1
+fi
+==============================================================
+#!/bin/bash
+echo "What is your name? Format: First, Last, Middle"
+read name
+echo "What year were you born?"
+read year
+echo "You are "
+expr 2016 - $year
+echo "What is your username?"
+read username
+grep ^$username /etc/passwd | cat
+echo "Your home directory is" ~
+echo "You are running the following preocesses"
+pstree -u $username | cat
+echo "Today is" $(date +"%c")
+=============================================================
+#!/bin/bash
+##lookup
+sort -t " " -k 2,2  datafile | cat
+sort -t " " -k 2,2  datafile | cat | wc -l
+echo "entries"
